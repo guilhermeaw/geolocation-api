@@ -8,9 +8,13 @@ COPY package.json yarn.* ./
 
 USER node
 
-RUN yarn
+RUN yarn install
 
 COPY --chown=node:node . .
+
+RUN yarn build
+
+RUN yarn prisma generate
 
 EXPOSE 3000
 
