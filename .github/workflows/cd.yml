@@ -23,7 +23,7 @@ jobs:
 
       - name: Copy .env
         run: |
-          cp ~/.env geolocation-api/geolocation-api
+          cp ~/.env .env
 
       - name: Restart server application
         run: |
