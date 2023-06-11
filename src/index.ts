@@ -57,7 +57,7 @@ app.post('/alerts', async (req, res) => {
 });
 
 app.get('/alerts', async (req, res) => {
-  const result = await prisma.alert.findMany();
+  const result = await prisma.alert.findMany({ include: { category: true } });
 
   res.json(result);
 });
