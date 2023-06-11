@@ -56,6 +56,12 @@ app.post('/alerts', async (req, res) => {
   res.json(result);
 });
 
+app.get('/alerts', async (req, res) => {
+  const result = await prisma.alert.findMany();
+
+  res.json(result);
+});
+
 app.listen(3000, () =>
   console.log('REST API server ready at: http://localhost:3000'),
 );
