@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Copy .env
+        run: |
+          cp ~/.env /geolocation-api/geolocation-api/.env
+
       - name: Restart server application
         run: |
           docker-compose down
