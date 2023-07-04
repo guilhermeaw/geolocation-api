@@ -56,8 +56,12 @@ app.post('/alerts', async (req, res) => {
   res.json(result);
 });
 
-app.get('/alerts', async (req, res) => {
-  const result = await prisma.alert.findMany({ include: { category: true } });
+app.get('/alerts/:routeId', async (req, res) => {
+  const { routeId } = req.params;
+
+  const result = await prisma.alert.findMany({ where: {
+    routeId: Number(routeId),
+  }, include: { category: true } });
 
   res.json(result);
 });
