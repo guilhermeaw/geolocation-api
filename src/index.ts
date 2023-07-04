@@ -15,7 +15,7 @@ app.use(cors());
 app.use(errors);
 
 app.get('/routes', async (req, res) => {
-  const routes = await prisma.route.findMany();
+  const routes = await prisma.route.findMany({ orderBy: { createdAt: 'desc' } });
   res.json(routes);
 });
 
